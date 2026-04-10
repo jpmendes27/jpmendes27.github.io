@@ -79,8 +79,15 @@
       position: relative;
       z-index: 2;
       border-bottom: 1px solid var(--border);
-      background: linear-gradient(180deg, rgba(10,10,11,0.9) 0%, rgba(10,10,11,0.5) 100%);
-      margin-bottom: 10px;
+      background: rgba(10, 10, 11, 0.6);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .topbar.is-fixed {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
     }
     .topbar::after {
       content: '';
@@ -89,8 +96,12 @@
       height: 42px;
       background-image: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
       background-size: 22px 22px;
-      opacity: 0.25;
+      opacity: 0.18;
       pointer-events: none;
+    }
+
+    .page.content {
+      padding-top: 96px;
     }
 
     nav {
@@ -382,6 +393,7 @@
     .divider { border: none; border-top: 1px solid var(--border); margin: 0 0 64px; }
 
     @media (max-width: 600px) {
+      .page.content { padding-top: 84px; }
       .topbar::after { height: 32px; background-size: 18px 18px; }
       nav { flex-direction: column; align-items: flex-start; gap: 12px; }
       .nav-links { gap: 14px; }
@@ -409,7 +421,7 @@
 </head>
 <body>
 
-<div class="topbar">
+<div class="topbar is-fixed">
   <div class="page">
     <nav>
       <span class="nav-logo">jpmendes.com</span>
@@ -421,7 +433,7 @@
   </div>
 </div>
 
-<div class="page">
+<div class="page content">
   <section class="hero">
     <div class="hero-eyebrow">Senior Product Manager</div>
     <h1><strong>João Paulo<br>Mendes</strong></h1>
